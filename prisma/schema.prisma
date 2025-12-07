@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PricingConfig {
+  id     Int   @id @default(1)
+  pMax   Float @default(29900)
+  pMin   Float @default(19900)
+  qFloor Int   @default(12)
+  qRoof  Int   @default(120)
+  n      Float @default(1.0)
+}
+
+model Watch {
+  id            Int    @id
+  name          String
+  stockQuantity Int
+  sales         Sale[]
+}
+
+model Sale {
+  id            String   @id @default(uuid())
+  watchId       Int
+  watch         Watch    @relation(fields: [watchId], references: [id])
+  soldAt        DateTime @default(now())
+  quantity      Int      @default(1)
+  finalPrice    Float
+  customerName  String
+  customerPhone String
+}
