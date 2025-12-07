@@ -52,7 +52,7 @@ export function SettingsForm({ config }: SettingsFormProps) {
           type="number"
           defaultValue={config.pMax}
           min={0}
-          step={100}
+          step="any"
           required
           className="h-12"
         />
@@ -69,7 +69,7 @@ export function SettingsForm({ config }: SettingsFormProps) {
           type="number"
           defaultValue={config.pMin}
           min={0}
-          step={100}
+          step="any"
           required
           className="h-12"
         />

@@ -203,7 +203,7 @@ export function SalesForm({ watchId, maxQuantity, pricingConfig }: SalesFormProp
           key={quantity}
           defaultValue={totalPrice}
           min={0}
-          step={100}
+          step="any"
           required
           className="h-12 text-lg font-medium"
         />
