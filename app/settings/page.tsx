@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { SettingsForm } from "./SettingsForm";
 import { ArrowLeft } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 async function getPricingConfig() {
   return prisma.pricingConfig.findFirst({ where: { id: 1 } });
 }

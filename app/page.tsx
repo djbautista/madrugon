@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { WatchGrid } from "@/components/WatchGrid";
 
+export const dynamic = "force-dynamic";
+
 async function getWatches() {
   return prisma.watch.findMany({
     orderBy: { id: "asc" },
